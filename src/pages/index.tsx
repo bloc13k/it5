@@ -1,10 +1,7 @@
 import type { NextPage } from 'next'
 import abi from '../components/ABIs/v2Router.json';
 import erc20Abi from '../components/ABIs/erc20.json'
-import nftAbi from '../components/ABIs/nft.json';
-import nftMarketAbi from '../components/ABIs/nftMarket.json';
 const { ChainId, Fetcher, WETH, Route, Trade, TokenAmount, TradeType, Percent }= require('@bloc13k/v2-sdk');
-import axios from "axios"; 
 import Head from 'next/head'
 import {
   Select,
@@ -110,11 +107,7 @@ const Home: NextPage =  () => {
    })
   };
 
-  const mintHandle = (event) => {
-    //add
-    setUri(uri)
-  };
-  
+
 //
   const [balance, setBalance] = useState<string | undefined>()
   const [currentAccount, setCurrentAccount] = useState<string | undefined>()
@@ -123,7 +116,6 @@ const Home: NextPage =  () => {
   const [signer, setSigner] = useState<any | undefined>()
   const [provider, setProvider] = useState<any | undefined>()
   const [quote, setQuote] = useState<any | undefined>()
-  const [nfts, setNfts] = useState("not loaded");
   const [loadingState, setLoadingState] = useState("not-loaded");
 
 
@@ -148,10 +140,6 @@ const Home: NextPage =  () => {
   const IT5Address = '0x83162b5f83535e927cc02efC3Fb57065c7f5a98C'
   const chain4id = ChainId.RINKEBY
   const deadline = '87656767621';
-  //const nft_market = '0xD99b2e3d52011A3Ac43B00eE0044A104B3B873E4';
-  //const nft_address = '0x534228A06eE35a6E59a08E77CD570de93130EEA1';
-
- 
 
   const onClickConnect = () => {
     if(!window.ethereum) {
